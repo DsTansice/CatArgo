@@ -1,10 +1,10 @@
-# fly.toml app configuration file generated for catargo on 2026-04-26T10:03:08Z
+# fly.toml app configuration file generated for catargo-jp on 2026-04-26T10:59:24Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'catargo'
-primary_region = 'sjc'
+app = 'catargo-jp'
+primary_region = 'nrt'
 
 [build]
 
