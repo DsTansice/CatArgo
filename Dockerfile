@@ -14,4 +14,4 @@ RUN apk update && apk upgrade &&\
 
 CMD ["node", "index.js"]
 
-USER 10001
+
