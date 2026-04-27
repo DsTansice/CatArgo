@@ -4,7 +4,7 @@
 #
 
 app = 'catargo-jp'
-primary_region = 'jp'
+primary_region = 'nrt'
 
 [build]
 
