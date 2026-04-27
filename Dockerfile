@@ -1,23 +1,24 @@
 FROM node:alpine3.20
 
-# 1. 显式创建 UID 10001 的用户（Checkov 要求 + 运行时需要）
+# 先创建用户
 RUN addgroup -g 10001 -S appgroup && \
     adduser -u 10001 -S appuser -G appgroup
 
-WORKDIR /app
+# 用 /home/appuser 作为工作目录（可写）
+WORKDIR /home/appuser
 
-# 2. 复制文件，并设置属主为 10001（关键！）
-COPY --chown=10001:10001 . .
+# 复制文件并设置属主
+COPY --chown=10001:10001 . /home/appuser/
 
-# 3. 安装依赖（此时还是 root，可以装系统包）
+# 安装依赖
 RUN apk update && apk upgrade && \
     apk add --no-cache openssl curl gcompat iproute2 coreutils bash && \
     npm install
 
 EXPOSE 3000/tcp
 
-# 4. USER 必须在 CMD 之前（Checkov 要求）
+# 切换用户（Checkov 要求）
 USER 10001
 
-# 5. 启动命令
+# 启动
 CMD ["node", "index.js"]
