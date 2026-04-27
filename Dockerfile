@@ -15,5 +15,7 @@ EXPOSE 3000/tcp
 
 USER 10001
 
-# 关键：启动时把 .tmp 建到 /tmp 下，或者改应用配置
-CMD ["sh", "-c", "ln -sf /tmp /home/appuser/.tmp 2>/dev/null; node index.js"]
+# 关键：设置 FILE_PATH 环境变量，让应用写到 /tmp 而不是 .tmp
+ENV FILE_PATH=/tmp/app-tmp
+
+CMD ["node", "index.js"]
