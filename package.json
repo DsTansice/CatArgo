@@ -1,9 +1,9 @@
 {
-  "name": "nodejs-argo",
-  "version": "1,0,0",
-  "description": "Thsi is a node project",
+  "name": "catargo",
+  "version": "3.0.1",
+  "description": "Thsi is a cat love project",
   "main": "index.js",
-  "author": "eooce",
+  "author": "dstansice",
   "repository": "",
   "license": "MIT",
   "private": false,
