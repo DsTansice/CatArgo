@@ -5,6 +5,7 @@
 
 app = 'catargo-jp'
 primary_region = 'nrt'
+swap_size_mb = 512
 
 [build]
 
